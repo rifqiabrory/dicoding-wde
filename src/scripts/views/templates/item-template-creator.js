@@ -1,6 +1,6 @@
 import CONFIG from "../../globals/config";
 
-const itemTemplate = (restaurant) => `
+const ItemTemplate = (restaurant) => `
         <a class="wrapper" href="${`/#/detail/${restaurant.id}`}">
             <article class="post">
                 <div class="post__thumbnail">
@@ -18,4 +18,4 @@ const itemTemplate = (restaurant) => `
         </a>
   `;
 
-export default itemTemplate;
+export default ItemTemplate;

@@ -1,8 +1,9 @@
 import RestaurantDataSource from "../../data/restaurant-source";
-import itemDetailTemplate from "../templates/item-detail-template-creator";
+import ItemDetailTemplate from "../templates/item-detail-template-creator";
 import UrlParser from "../../routes/url-parser";
 import RestaurantIdb from "../../data/restaurant-idb";
 import FavoriteButton from "../../utils/favorite-initiator";
+import CreateReview from "../../utils/create-review";
 
 const Detail = {
   async render() {
@@ -18,7 +19,7 @@ const Detail = {
     try {
       const response = await RestaurantDataSource.getRestaurantById(url.id);
       const { restaurant } = response;
-      restaurantContainer.innerHTML = itemDetailTemplate(restaurant);
+      restaurantContainer.innerHTML = ItemDetailTemplate(restaurant);
       await FavoriteButton.init({
         likeButtonContainer: document.querySelector("#likeButtonContainer"),
         favoriteRestaurant: RestaurantIdb,
@@ -27,6 +28,21 @@ const Detail = {
     } catch (error) {
       console.log("An error has accured at ::", error);
     }
+
+    const formReview = document.querySelector("#create-review");
+    const fullnameEl = document.querySelector("#fullname");
+    const descriptionEl = document.querySelector("#description");
+    formReview.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const body = {
+        id: url.id,
+        name: fullnameEl.value,
+        review: descriptionEl.value,
+      };
+      CreateReview(body);
+      fullnameEl.value = "";
+      descriptionEl.value = "";
+    });
   },
 };
 

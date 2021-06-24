@@ -1,27 +1,33 @@
 import RestaurantDataSource from "../../data/restaurant-source";
-import itemTemplate from "../templates/item-template-creator";
+import ItemTemplate from "../templates/item-template-creator";
+import Spinner from "../templates/spinner-template-creator";
 
 const List = {
   async render() {
     return `
-      <section class="content">
-            <div class="explore">
-                <h1 class="explore__label">Explore Restaurant</h1>
-                <div class="posts"></div>
-            </div>
+        <section class="content">
+          <div class="explore">
+            <h1 class="explore__label">Explore Restaurant</h1>
+            <div id="loading"></div>
+            <div class="posts"></div>
+          </div>
         </section>
     `;
   },
 
   async afterRender() {
     const postsContainer = document.querySelector(".posts");
+    const loading = document.querySelector("#loading");
+    loading.innerHTML = Spinner();
     try {
       const response = await RestaurantDataSource.getRestaurants();
       const { restaurants } = response;
       restaurants.forEach((restaurant) => {
-        postsContainer.innerHTML += itemTemplate(restaurant);
+        postsContainer.innerHTML += ItemTemplate(restaurant);
       });
+      loading.style.display = "none";
     } catch (error) {
+      loading.style.display = "none";
       console.log("An error has accured at ::", error);
     }
   },

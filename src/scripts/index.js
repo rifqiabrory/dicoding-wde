@@ -1,4 +1,9 @@
 import "regenerator-runtime";
+import "lazysizes";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
+import "./components/app-bar";
+import "./components/app-jumbotron";
+import "./components/app-footer";
 import "../styles/main.css";
 import "../styles/responsive.css";
 import App from "./views/app";

@@ -1,5 +1,6 @@
 import RestaurantIdb from "../../data/restaurant-idb";
-import itemTemplate from "../templates/item-template-creator";
+import ItemTemplate from "../templates/item-template-creator";
+import Spinner from "../templates/spinner-template-creator";
 
 const Favorite = {
   async render() {
@@ -7,6 +8,7 @@ const Favorite = {
         <section class="content">
             <div class="explore">
                 <h1 class="explore__label">My Favorites Restaurant</h1>
+                <div id="loading"></div>
                 <div class="posts"></div>
             </div>
         </section>
@@ -14,7 +16,10 @@ const Favorite = {
   },
 
   async afterRender() {
+    const loading = document.querySelector("#loading");
     const postsContainer = document.querySelector(".posts");
+    loading.innerHTML = Spinner();
+
     try {
       const restaurants = await RestaurantIdb.getAllRestaurants();
       if (restaurants.length < 1) {
@@ -24,11 +29,14 @@ const Favorite = {
                 <div class="favorite-empty"></div>
                 <p>You don't have any Favorite Cafe or Restaurant!</p>
             `;
+        loading.style.display = "none";
       }
       restaurants.forEach((restaurant) => {
-        postsContainer.innerHTML += itemTemplate(restaurant);
+        postsContainer.innerHTML += ItemTemplate(restaurant);
       });
+      loading.style.display = "none";
     } catch (error) {
+      loading.style.display = "none";
       console.log("An error has accured at ::", error);
     }
   },

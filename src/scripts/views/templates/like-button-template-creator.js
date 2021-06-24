@@ -1,7 +1,7 @@
-const likeButton = () => `
+const LikeButton = () => `
         <button id="likeButton">
             <i class="far fa-heart"></i>
         </button>
     `;
 
-export default likeButton;
+export default LikeButton;

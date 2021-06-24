@@ -2,6 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
+const ImageminMozjpeg = require("imagemin-mozjpeg");
+const ImageminPngquant = require("imagemin-pngquant");
 
 module.exports = {
   entry: path.resolve(__dirname, "src/scripts/index.js"),
@@ -72,6 +75,17 @@ module.exports = {
       swSrc: path.resolve(__dirname, "src/scripts/sw.js"),
       swDest: "sw.js",
       exclude: [/\.DS*/],
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        ImageminPngquant({
+          quality: [0.3, 0.5],
+        }),
+      ],
     }),
   ],
 };

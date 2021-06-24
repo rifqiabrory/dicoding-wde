@@ -1,6 +1,6 @@
 import CONFIG from "../../globals/config";
 
-const itemDetailTemplate = (restaurant) => {
+const ItemDetailTemplate = (restaurant) => {
   const { categories } = restaurant;
   const { foods, drinks } = restaurant.menus;
 
@@ -84,11 +84,23 @@ const itemDetailTemplate = (restaurant) => {
             </div>
             <div class="space-vertical">
                 <h1 class="detail-post__title">Reviews</h1>
-                ${renderReviews()}
+                <div class="user__wrapper">
+                  <div class="user__rounded"><i class="fas fa-user"></i></div>
+                  <div style="display: flex;justify-content: center;align-content: center;flex-direction: column;margin-left: 10px;">
+                      <form id="create-review">
+                          <input type="text" id="fullname" name="fullname" placeholder="Your Name" required>
+                          <textarea id="description" name="description" placeholder="Description" required></textarea>
+                          <input type="submit" value="Submit">
+                      </form>
+                  </div>
+              </div> 
+                <div class="review-container">
+                  ${renderReviews()}
+                </div>
             </div>
         </div>
     </article>
 `;
 };
 
-export default itemDetailTemplate;
+export default ItemDetailTemplate;
