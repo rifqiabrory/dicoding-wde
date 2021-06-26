@@ -84,7 +84,7 @@ const ItemDetailTemplate = (restaurant) => {
             </div>
             <div class="space-vertical">
                 <h1 class="detail-post__title">Reviews</h1>
-                <div class="user__wrapper">
+                <div class="form_review_wrapper">
                   <div class="user__rounded"><i class="fas fa-user"></i></div>
                   <div style="display: flex;justify-content: center;align-content: center;flex-direction: column;margin-left: 10px;">
                       <form id="create-review">

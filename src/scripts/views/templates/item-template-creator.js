@@ -1,7 +1,7 @@
 import CONFIG from "../../globals/config";
 
 const ItemTemplate = (restaurant) => `
-        <a class="wrapper" href="${`/#/detail/${restaurant.id}`}">
+        <a href="${`/#/detail/${restaurant.id}`}">
             <article class="post">
                 <div class="post__thumbnail">
                     <h2><i class="fas fa-star"></i>${restaurant.rating}</h2>

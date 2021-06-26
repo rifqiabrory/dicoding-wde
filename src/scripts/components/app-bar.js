@@ -13,7 +13,7 @@ class AppBar extends HTMLElement {
                 <nav id="drawer" class="nav">
                 <div class="nav__close"><a id="close" href="#">x</a></div>
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#">Home</a></li>
+                    <li class="nav__item"><a href="#/home">Home</a></li>
                     <li class="nav__item"><a href="#/favorite">Favorite</a></li>
                     <li class="nav__item"><a href="https://www.linkedin.com/in/rifqi-abrory/">About Us</a></li>
                 </ul>

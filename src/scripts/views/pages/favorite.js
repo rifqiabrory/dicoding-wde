@@ -23,7 +23,6 @@ const Favorite = {
     try {
       const restaurants = await RestaurantIdb.getAllRestaurants();
       if (restaurants.length < 1) {
-        postsContainer.classList.remove("posts");
         postsContainer.classList.add("empty-wrapper");
         postsContainer.innerHTML = `
                 <div class="favorite-empty"></div>

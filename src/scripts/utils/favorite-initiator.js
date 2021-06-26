@@ -1,5 +1,4 @@
-import LikeButton from "../views/templates/like-button-template-creator";
-import UnlikeButton from "../views/templates/unlike-button-template-creator";
+import Button from "../views/templates/button-template-creator";
 
 const FavoriteInitiator = {
   async init({ likeButtonContainer, favoriteRestaurant, data }) {
@@ -26,7 +25,7 @@ const FavoriteInitiator = {
   },
 
   _renderLike() {
-    this._likeButtonContainer.innerHTML = LikeButton();
+    this._likeButtonContainer.innerHTML = Button("far fa-heart");
 
     const likeButtonEl = document.querySelector("#likeButton");
     likeButtonEl.addEventListener("click", async () => {
@@ -36,7 +35,7 @@ const FavoriteInitiator = {
   },
 
   _renderLiked() {
-    this._likeButtonContainer.innerHTML = UnlikeButton();
+    this._likeButtonContainer.innerHTML = Button("fa fa-heart");
 
     const likeButtonEl = document.querySelector("#likeButton");
     likeButtonEl.addEventListener("click", async () => {

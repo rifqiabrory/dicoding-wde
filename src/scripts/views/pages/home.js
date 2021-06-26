@@ -2,7 +2,7 @@ import RestaurantDataSource from "../../data/restaurant-source";
 import ItemTemplate from "../templates/item-template-creator";
 import Spinner from "../templates/spinner-template-creator";
 
-const List = {
+const Home = {
   async render() {
     return `
         <section class="content">
@@ -33,4 +33,4 @@ const List = {
   },
 };
 
-export default List;
+export default Home;

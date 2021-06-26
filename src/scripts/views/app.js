@@ -28,7 +28,9 @@ export default class App {
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    this._jumbotron.style.display = url.substring(1) !== "" ? "none" : "flex";
+    const pagePath = url.substring(1);
+    const display = pagePath === "" || pagePath === "home" ? "flex" : "none";
+    this._jumbotron.style.display = display;
     this._content.innerHTML = await page.render();
     await page.afterRender();
   }

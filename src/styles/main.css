@@ -345,7 +345,7 @@ img {
   color: inherit;
 }
 
-.wrapper {
+.posts a {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -371,7 +371,6 @@ main .like-wrapper {
   position: fixed;
   bottom: 5%;
   right: 10%;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -384,6 +383,7 @@ main .like-wrapper button {
   border-radius: 50%;
   width: 55px;
   height: 55px;
+  cursor: pointer;
 }
 
 main .like-wrapper button:hover {
@@ -498,7 +498,7 @@ main .like-wrapper i {
   margin: 15px 0;
 }
 
-.user__wrapper {
+.form_review_wrapper {
   display: flex;
   border-bottom: 1.5px solid #ececec;
 }
@@ -526,7 +526,7 @@ main .like-wrapper i {
 }
 
 .empty-wrapper {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   text-align: center;
 }
