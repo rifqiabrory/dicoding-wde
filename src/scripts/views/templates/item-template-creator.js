@@ -5,7 +5,7 @@ const ItemTemplate = (restaurant) => `
             <article class="post">
                 <div class="post__thumbnail">
                     <h2><i class="fas fa-star"></i>${restaurant.rating}</h2>
-                    <img src="${CONFIG.BASE_URL}/images/small/${restaurant.pictureId}" alt="${restaurant.name}" />
+                    <img class="lazyload" data-src="${CONFIG.BASE_URL}/images/small/${restaurant.pictureId}" alt="${restaurant.name}" />
                 </div>
                 <div class="post__content">
                     <h2 class="post__rating"><i class="fas fa-map-marker-alt"></i>${restaurant.city}</h2>

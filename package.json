@@ -4,11 +4,12 @@
   "description": "RestFood is a restaurant catalogue that provide list of cafe and restaurant",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js --port=8083",
-    "build": "webpack --config webpack.prod.js",
+    "development": "webpack-dev-server --config webpack.dev.js --port=8083",
+    "production": "webpack --config webpack.prod.js && node sharp.js",
     "bundle-analyzer": "webpack-bundle-analyzer --port 4200 dist/stats.json",
+    "build-image": "node sharp.js",
     "eslint": "eslint ./src --fix",
-    "karma-test": "karma start",
+    "test": "karma start",
     "e2e": "codeceptjs run --steps"
   },
   "keywords": [
@@ -49,6 +50,7 @@
     "karma-webpack": "^4.0.2",
     "puppeteer": "^10.0.0",
     "serviceworker-webpack-plugin": "^1.0.1",
+    "sharp": "^0.28.3",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^4.4.2",

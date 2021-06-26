@@ -5,12 +5,13 @@ const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozjpeg = require("imagemin-mozjpeg");
 const ImageminPngquant = require("imagemin-pngquant");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "src/scripts/index.js"),
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    filename: "[name].[chunkhash].js",
   },
   module: {
     rules: [
@@ -32,6 +33,7 @@ module.exports = {
     ],
   },
   optimization: {
+    runtimeChunk: "single",
     splitChunks: {
       chunks: "all",
       minSize: 25000,
@@ -50,6 +52,11 @@ module.exports = {
           minChunks: 2,
           priority: -20,
           reuseExistingChunk: true,
+        },
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
         },
       },
     },
@@ -86,6 +93,17 @@ module.exports = {
           quality: [0.3, 0.5],
         }),
       ],
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
     }),
   ],
 };

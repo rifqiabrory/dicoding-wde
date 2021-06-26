@@ -1,11 +1,11 @@
 import CONFIG from "../../globals/config";
 
 const ItemDetailTemplate = (restaurant) => {
-  const { categories } = restaurant;
+  const { categories, customerReviews } = restaurant;
   const { foods, drinks } = restaurant.menus;
 
   const renderReviews = () => {
-    const reviews = restaurant.customerReviews
+    const reviews = customerReviews
       .map(
         (review) => `
                 <div class="user__wrapper">
@@ -53,7 +53,7 @@ const ItemDetailTemplate = (restaurant) => {
         <div class="detail-post__wrapper">
             <div class="detail-post__thumbnail">
                 <h2><i class="fas fa-star"></i>${restaurant.rating}</h2>
-                <img src="${CONFIG.BASE_URL}/images/small/${restaurant.pictureId}" alt="${restaurant.name}" />
+                <img class="lazyload" data-src="${CONFIG.BASE_URL}/images/small/${restaurant.pictureId}" alt="${restaurant.name}" />
             </div>
             <div class="detail-post__menu">
                 <h2>Menu Makanan</h2>
@@ -83,7 +83,7 @@ const ItemDetailTemplate = (restaurant) => {
                 <p class="detail-post__description">${restaurant.description}</p>
             </div>
             <div class="space-vertical">
-                <h1 class="detail-post__title">Reviews</h1>
+                <h1 class="detail-post__title">Reviews (${customerReviews.length})</h1>
                 <div class="form_review_wrapper">
                   <div class="user__rounded"><i class="fas fa-user"></i></div>
                   <div style="display: flex;justify-content: center;align-content: center;flex-direction: column;margin-left: 10px;">

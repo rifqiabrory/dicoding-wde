@@ -25,7 +25,7 @@ const FavoriteInitiator = {
   },
 
   _renderLike() {
-    this._likeButtonContainer.innerHTML = Button("far fa-heart");
+    this._likeButtonContainer.innerHTML = Button("far fa-heart", "like this restaurant");
 
     const likeButtonEl = document.querySelector("#likeButton");
     likeButtonEl.addEventListener("click", async () => {
@@ -35,7 +35,7 @@ const FavoriteInitiator = {
   },
 
   _renderLiked() {
-    this._likeButtonContainer.innerHTML = Button("fa fa-heart");
+    this._likeButtonContainer.innerHTML = Button("fa fa-heart", "unlike this restaurant");
 
     const likeButtonEl = document.querySelector("#likeButton");
     likeButtonEl.addEventListener("click", async () => {

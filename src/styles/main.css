@@ -116,13 +116,14 @@ header button {
 .jumbotron {
   display: flex;
   align-items: center;
-  min-height: 380px;
   width: 100%;
+  height: 380px;
   text-align: center;
   background-image: url("../public/images/heros/hero-image_4.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 .jumbotron__inner {
@@ -302,6 +303,8 @@ img {
   max-height: 235px;
   max-width: 100%;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .post__thumbnail h2 {
@@ -499,6 +502,11 @@ main .like-wrapper i {
 }
 
 .form_review_wrapper {
+  display: flex;
+  border-bottom: 1.5px solid #ececec;
+}
+
+.user__wrapper {
   display: flex;
   border-bottom: 1.5px solid #ececec;
 }

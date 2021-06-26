@@ -6,5 +6,8 @@ module.exports = merge(common, {
   mode: "development",
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
+    headers: {
+      "Cache-Control": "no-store",
+    },
   },
 });
