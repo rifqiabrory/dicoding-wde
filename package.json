@@ -1,6 +1,6 @@
 {
   "name": "restaurant-catalogue",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "RestFood is a restaurant catalogue that provide list of cafe and restaurant",
   "main": "index.js",
   "scripts": {

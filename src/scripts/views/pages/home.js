@@ -1,6 +1,7 @@
 import RestaurantDataSource from "../../data/restaurant-source";
 import ItemTemplate from "../templates/item-template-creator";
 import Spinner from "../templates/spinner-template-creator";
+import Skeleton from "../templates/skeleton-template-creator";
 
 const Home = {
   async render() {
@@ -9,7 +10,9 @@ const Home = {
           <div class="explore">
             <h1 class="explore__label">Explore Restaurant</h1>
             <div id="loading"></div>
-            <div class="posts"></div>
+            <div class="posts">
+              ${Skeleton(18)}
+            </div>
           </div>
         </section>
     `;
@@ -22,12 +25,13 @@ const Home = {
     try {
       const response = await RestaurantDataSource.getRestaurants();
       const { restaurants } = response;
+      postsContainer.innerHTML = "";
       restaurants.forEach((restaurant) => {
         postsContainer.innerHTML += ItemTemplate(restaurant);
       });
-      loading.style.display = "none";
+      loading.innerHTML = "";
     } catch (error) {
-      loading.style.display = "none";
+      loading.innerHTML = "";
       console.log("An error has accured at ::", error);
     }
   },

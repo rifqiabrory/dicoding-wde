@@ -18,7 +18,7 @@ fs.readdirSync(target).forEach((image) => {
         `${destination}/${image
           .split(".")
           .slice(0, -1)
-          .join(".")}-large.jpg`,
+          .join(".")}-lg.jpg`,
       ),
     );
 
@@ -30,7 +30,7 @@ fs.readdirSync(target).forEach((image) => {
         `${destination}/${image
           .split(".")
           .slice(0, -1)
-          .join(".")}-small.jpg`,
+          .join(".")}-sm.jpg`,
       ),
     );
 
