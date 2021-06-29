@@ -119,7 +119,17 @@ header button {
   width: 100%;
   height: 380px;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image_4.jpg");
+  background-image: url("../public/images/hero-image_4-xl.jpg");
+  background-image: -webkit-image-set(
+    url("../public/images/hero-image_4-sm.jpg") 1x,
+    url("../public/images/hero-image_4-lg.jpg") 2x,
+    url("../public/images/hero-image_4-xl.jpg") 3x
+  );
+  background-image: image-set(
+    url("../public/images/hero-image_4-sm.jpg") 1x,
+    url("../public/images/hero-image_4-lg.jpg") 2x,
+    url("../public/images/hero-image_4-xl.jpg") 3x
+  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
